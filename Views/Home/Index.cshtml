@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MvcMusicStore.Models.Album>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Lägg till", "Create", "Home")
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(x => x.Artist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x => x.Genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x => x.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x => x.Price)
+        </th>
+    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(x => item.Artist.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => item.Genre.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => item.Price)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new {id = item.AlbumId}) |
+                        @Html.ActionLink("Details", "Details", new {id = item.AlbumId}) |
+                        @Html.ActionLink("Delete", "Delete", new {id = item.AlbumId})
+                 </td>*@
+            </tr>
+        }
+</table>
